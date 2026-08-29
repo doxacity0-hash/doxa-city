@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DOXA CITY — premium Christian clothing. Faith expressed through contemporary fashion.">
+<title>DOXA CITY — Premium Christian Clothing</title>
+<style>
+:root{--black:#0a0a0a;--ink:#151515;--paper:#f6f4ef;--muted:#77736c;--line:#ddd9d0;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--black);font-family:Arial,Helvetica,sans-serif}
+button,input,select{font:inherit}.announcement{background:var(--black);color:#fff;text-align:center;padding:9px 14px;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+header{position:sticky;top:0;z-index:20;background:rgba(246,244,239,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{max-width:1250px;margin:auto;height:76px;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;letter-spacing:.2em;font-size:18px}.links{display:flex;gap:30px}.links a{text-decoration:none;color:inherit;font-size:12px;text-transform:uppercase;letter-spacing:.12em}
+.cart-btn{border:1px solid var(--black);background:transparent;padding:11px 15px;cursor:pointer;font-size:11px;text-transform:uppercase;letter-spacing:.1em}
+.hero{min-height:78vh;display:grid;place-items:center;text-align:center;padding:100px 24px;background:linear-gradient(135deg,#eeeae1,#faf9f5)}
+.hero h1{font-size:clamp(48px,9vw,115px);line-height:.88;margin:0;letter-spacing:-.06em;font-weight:800}
+.hero p{max-width:570px;margin:28px auto 34px;color:#555;font-size:15px;line-height:1.7}
+.btn{display:inline-block;background:var(--black);color:#fff;border:0;padding:15px 24px;text-decoration:none;text-transform:uppercase;letter-spacing:.13em;font-size:11px;cursor:pointer}
+.section{max-width:1250px;margin:auto;padding:95px 24px}.section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:32px}.eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}h2{font-size:42px;letter-spacing:-.04em;margin:8px 0 0}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{background:#fff}.product-img{aspect-ratio:4/5;background:#e9e5dc;display:grid;place-items:center;overflow:hidden}.product-img img{width:100%;height:100%;object-fit:cover}.placeholder{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#777;text-align:center;padding:20px}
+.card-body{padding:18px}.card h3{font-size:13px;letter-spacing:.08em;margin:0 0 8px}.price{font-weight:700;font-size:14px}.desc{font-size:12px;color:#777;line-height:1.55;margin:9px 0 15px}.card .btn{width:100%;text-align:center}
+.message{background:var(--black);color:white}.message-inner{max-width:900px;margin:auto;text-align:center}.message h2{font-size:clamp(40px,6vw,75px)}.message p{color:#bdbdbd;line-height:1.8;max-width:650px;margin:22px auto}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.about h2{font-size:60px}.about p{line-height:1.8;color:#65615a}
+footer{background:var(--black);color:#fff;padding:55px 24px}.footer-inner{max-width:1250px;margin:auto;display:flex;justify-content:space-between;gap:30px}.footer-small{color:#999;font-size:12px;line-height:1.7}
+.drawer{position:fixed;inset:0;z-index:50;pointer-events:none}.overlay{position:absolute;inset:0;background:#0008;opacity:0;transition:.25s}.drawer-panel{position:absolute;right:0;top:0;height:100%;width:min(480px,100%);background:var(--paper);transform:translateX(100%);transition:.3s;padding:28px;display:flex;flex-direction:column}.drawer.open{pointer-events:auto}.drawer.open .overlay{opacity:1}.drawer.open .drawer-panel{transform:none}.drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:18px}.close{border:0;background:none;font-size:24px;cursor:pointer}.cart-items{flex:1;overflow:auto;padding:15px 0}.cart-item{display:grid;grid-template-columns:70px 1fr auto;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}.mini{background:#e5e0d6;aspect-ratio:1;display:grid;place-items:center;font-size:8px;text-align:center}.cart-item h4{margin:0 0 5px;font-size:12px}.cart-item small{color:#777}.qty{display:flex;gap:8px;align-items:center;margin-top:8px}.qty button{border:1px solid var(--line);background:white;width:25px;height:25px}.remove{border:0;background:none;color:#888;font-size:11px}.total{border-top:1px solid var(--black);padding:18px 0;display:flex;justify-content:space-between;font-weight:700}.checkout label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;margin:10px 0 6px}.checkout input{width:100%;padding:12px;border:1px solid var(--line);background:#fff}.wa{width:100%;margin-top:14px}
+.modal{position:fixed;inset:0;background:#0009;z-index:60;display:none;place-items:center;padding:20px}.modal.show{display:grid}.modal-box{background:var(--paper);max-width:720px;width:100%;max-height:90vh;overflow:auto;padding:25px}.product-detail{display:grid;grid-template-columns:1fr 1fr;gap:28px}.detail-img{background:#e9e5dc;aspect-ratio:4/5;display:grid;place-items:center}.detail-copy h2{font-size:38px}.detail-copy p{line-height:1.7;color:#666;font-size:14px}.options{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}.option{border:1px solid var(--line);background:#fff;padding:10px 13px;cursor:pointer;font-size:11px}.option.selected{background:#000;color:#fff;border-color:#000}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr;gap:25px}.about h2{font-size:45px}.links{display:none}}
+@media(max-width:560px){.nav{height:64px}.grid{grid-template-columns:1fr 1fr;gap:10px}.section{padding:65px 15px}.card-body{padding:13px}.hero{min-height:70vh}.footer-inner{flex-direction:column}.product-detail{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="announcement">Premium Christian Clothing • Ghana</div>
+<header><nav class="nav">
+<div class="logo">DOXA CITY</div>
+<div class="links"><a href="#shop">Shop</a><a href="#message">The Message</a><a href="#about">About</a></div>
+<button class="cart-btn" onclick="openCart()">Cart (<span id="cartCount">0</span>)</button>
+</nav></header>
+
+<main>
+<section class="hero">
+<div><div class="eyebrow">Faith expressed through contemporary fashion</div>
+<h1>WEAR THE<br>MESSAGE.</h1>
+<p>Premium Christian clothing designed for people who want their faith, identity and everyday style to speak together.</p>
+<a class="btn" href="#shop">Shop the collection</a></div>
+</section>
+
+<section class="section" id="shop">
+<div class="section-head"><div><div class="eyebrow">The collection</div><h2>Featured pieces</h2></div></div>
+<div class="grid" id="productGrid"></div>
+</section>
+
+<section class="section message" id="message"><div class="message-inner">
+<div class="eyebrow">DOXA CITY</div><h2>FAITH IS AN IDENTITY.</h2>
+<p>We create contemporary Christian clothing that turns timeless truth into something you can wear. Minimal design. Strong message. Christ at the centre.</p>
+<a class="btn" href="#shop" style="background:#fff;color:#000">Explore the collection</a>
+</div></section>
+
+<section class="section about" id="about">
+<div><div class="eyebrow">Our philosophy</div><h2>Christ in culture.</h2></div>
+<div><p>DOXA CITY exists at the intersection of faith and contemporary fashion. Every piece is designed to communicate a message of identity, purpose and Christlikeness without sacrificing premium aesthetics.</p><p>Built for believers. Designed for everyday life.</p></div>
+</section>
+</main>
+
+<footer><div class="footer-inner"><div><div class="logo">DOXA CITY</div><p class="footer-small">Faith expressed through contemporary fashion.</p></div><div class="footer-small">© 2026 DOXA CITY<br>Ghana</div></div></footer>
+
+<div class="drawer" id="drawer"><div class="overlay" onclick="closeCart()"></div><aside class="drawer-panel">
+<div class="drawer-head"><strong>YOUR CART</strong><button class="close" onclick="closeCart()">×</button></div>
+<div class="cart-items" id="cartItems"></div>
+<div class="checkout">
+<label for="customerName">Name</label><input id="customerName" placeholder="Your full name">
+<label for="customerLocation">Location</label><input id="customerLocation" placeholder="e.g. Accra, Kumasi, Techiman">
+<div class="total"><span>Total</span><span id="cartTotal">₵0</span></div>
+<button class="btn wa" onclick="orderWhatsApp()">Order via WhatsApp</button>
+</div></aside></div>
+
+<div class="modal" id="modal"><div class="modal-box" id="modalBox"></div></div>
+
+<script>
+/* =========================
+   DOXA CITY PRODUCT SETTINGS
+   Replace image URLs, prices and descriptions here.
+   ========================= */
+const WHATSAPP_NUMBER = "233XXXXXXXXX"; // Replace with your WhatsApp number, e.g. 233241234567
+
+const products = [
+ {id:1,name:"REDEEMED TEE",price:350,image:"",sizes:["L","XL","XXL","XXXL"],colors:["Black","Cream"],desc:"A premium Christian T-shirt inspired by the believer's identity in Christ — redeemed, restored and made new.",message:"A reminder that our identity is not defined by our past, but by what Christ has done.",verse:"2 Corinthians 5:17"},
+ {id:2,name:"BUILT FOR HIS GLORY TEE",price:350,image:"",sizes:["L","XL","XXL","XXXL"],colors:["Black","White","Grey"],desc:"A contemporary faith statement designed to keep purpose at the centre of everyday style.",message:"Our lives, work and influence are ultimately meant to point back to God's glory.",verse:"1 Corinthians 10:31"},
+ {id:3,name:"CHRISTLIKENESS TEE",price:350,image:"",sizes:["L","XL","XXL","XXXL"],colors:["Black","Cream"],desc:"A minimal statement about the believer's call to become more like Christ in character and life.",message:"The goal is not simply to look Christian, but to reflect Christ.",verse:"Romans 8:29"},
+ {id:4,name:"DOXA CITY ESSENTIAL",price:300,image:"",sizes:["L","XL","XXL","XXXL"],colors:["Black","White"],desc:"A clean everyday essential featuring the DOXA CITY identity with a premium streetwear silhouette.",message:"Simple design. Strong identity. Faith at the centre.",verse:"Colossians 3:17"}
+];
+
+let cart = JSON.parse(localStorage.getItem("doxaCart") || "[]");
+
+function money(n){return "₵"+Number(n).toLocaleString("en-GH")}
+function save(){localStorage.setItem("doxaCart",JSON.stringify(cart));renderCart()}
+function renderProducts(){
+ const grid=document.getElementById("productGrid");
+ grid.innerHTML=products.map(p=>`
+ <article class="card">
+   <div class="product-img">${p.image?`<img src="${p.image}" alt="${p.name}">`:`<div class="placeholder">YOUR<br>PRODUCT<br>IMAGE</div>`}</div>
+   <div class="card-body">
+    <h3>${p.name}</h3><div class="price">${money(p.price)}</div>
+    <div class="desc">${p.desc}</div>
+    <button class="btn" onclick="openProduct(${p.id})">View product</button>
+   </div>
+ </article>`).join("");
+}
+function openProduct(id){
+ const p=products.find(x=>x.id===id);
+ document.getElementById("modalBox").innerHTML=`
+ <button class="close" style="float:right" onclick="closeModal()">×</button>
+ <div class="product-detail">
+  <div class="detail-img">${p.image?`<img src="${p.image}" style="width:100%;height:100%;object-fit:cover" alt="${p.name}">`:`<div class="placeholder">YOUR PRODUCT IMAGE</div>`}</div>
+  <div class="detail-copy">
+   <div class="eyebrow">DOXA CITY</div><h2>${p.name}</h2><strong>${money(p.price)}</strong>
+   <p>${p.desc}</p><h4>THE MESSAGE</h4><p>${p.message}</p><p><strong>Scripture:</strong> ${p.verse}</p>
+   <div class="eyebrow">Size</div><div class="options" id="sizes">${p.sizes.map((s,i)=>`<button class="option ${i===0?"selected":""}" onclick="selectOption(this)">${s}</button>`).join("")}</div>
+   <div class="eyebrow">Colour</div><div class="options" id="colors">${p.colors.map((c,i)=>`<button class="option ${i===0?"selected":""}" onclick="selectOption(this)">${c}</button>`).join("")}</div>
+   <button class="btn" style="width:100%" onclick="addProduct(${p.id})">Add to cart</button>
+  </div>
+ </div>`;
+ document.getElementById("modal").classList.add("show");
+}
+function selectOption(el){[...el.parentElement.children].forEach(x=>x.classList.remove("selected"));el.classList.add("selected")}
+function addProduct(id){
+ const p=products.find(x=>x.id===id), size=document.querySelector("#sizes .selected").textContent, color=document.querySelector("#colors .selected").textContent;
+ const found=cart.find(x=>x.id===id&&x.size===size&&x.color===color);
+ if(found)found.qty++;else cart.push({id,size,color,qty:1});
+ save();closeModal();openCart();
+}
+function renderCart(){
+ let count=cart.reduce((a,x)=>a+x.qty,0), total=0;
+ document.getElementById("cartCount").textContent=count;
+ const box=document.getElementById("cartItems");
+ if(!cart.length){box.innerHTML='<p class="footer-small">Your cart is empty.</p>';document.getElementById("cartTotal").textContent="₵0";return}
+ box.innerHTML=cart.map((x,i)=>{const p=products.find(y=>y.id===x.id);total+=p.price*x.qty;return`
+ <div class="cart-item"><div class="mini">${p.name}</div><div><h4>${p.name}</h4><small>${x.size} • ${x.color}<br>${money(p.price)} each</small><div class="qty"><button onclick="changeQty(${i},-1)">−</button><span>${x.qty}</span><button onclick="changeQty(${i},1)">+</button></div></div><button class="remove" onclick="removeItem(${i})">Remove</button></div>`}).join("");
+ document.getElementById("cartTotal").textContent=money(total);
+}
+function changeQty(i,d){cart[i].qty+=d;if(cart[i].qty<=0)cart.splice(i,1);save()}
+function removeItem(i){cart.splice(i,1);save()}
+function openCart(){renderCart();document.getElementById("drawer").classList.add("open")}
+function closeCart(){document.getElementById("drawer").classList.remove("open")}
+function closeModal(){document.getElementById("modal").classList.remove("show")}
+function orderWhatsApp(){
+ if(!cart.length){alert("Your cart is empty.");return}
+ if(WHATSAPP_NUMBER.includes("X")){alert("Please replace WHATSAPP_NUMBER in the website code with your WhatsApp number first.");return}
+ const name=document.getElementById("customerName").value.trim()||"Not provided";
+ const location=document.getElementById("customerLocation").value.trim()||"Not provided";
+ let total=0, lines=[];
+ cart.forEach((x,i)=>{const p=products.find(y=>y.id===x.id);total+=p.price*x.qty;lines.push(`${i+1}. ${p.name}\nSize: ${x.size}\nColour: ${x.color}\nQuantity: ${x.qty}\nPrice: ${money(p.price*x.qty)}`)});
+ const msg=`Hello DOXA CITY, I would like to place an order.\n\nCustomer: ${name}\nLocation: ${location}\n\nORDER DETAILS\n${lines.join("\n\n")}\n\nTOTAL: ${money(total)}\n\nPlease confirm availability and delivery/payment options.`;
+ window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(msg),"_blank");
+}
+renderProducts();renderCart();
+</script>
+</body>
+</html>
