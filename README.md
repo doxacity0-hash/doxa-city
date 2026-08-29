@@ -12,7 +12,7 @@ A lightweight premium storefront with:
 
 ## Before publishing
 Open `index.html` and change:
-`const WHATSAPP_NUMBER = "233XXXXXXXXX";`
+`const WHATSAPP_NUMBER = "233551396345";`
 
 Then replace the product `image` fields with your actual image URLs or local image paths, and edit names/prices/descriptions/sizes/colours.
 
